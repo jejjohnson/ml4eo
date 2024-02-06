@@ -1,0 +1,13 @@
+format: jb-book
+root: content/index.md
+chapters:
+  - title: Introduction
+    sections:
+      - file: content/motivation.md
+  - title: Data
+    sections:
+      - file: content/data/data_index.md
+      - file: content/data/observations.md
+      - file: content/data/simulations.md
+      - file: content/data/reanalysis.md
+  

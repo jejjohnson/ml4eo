@@ -1,0 +1,63 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  # title:
+  # description:
+  keywords: []
+  authors: []
+  github: https://github.com/jejjohnson/ml4eo
+  # bibliography: []
+  abbreviations:
+      ERA5: ECMWF Reanalysis Version 5
+      CMIP6: Coupled Model Intercomparison Project Phase 6
+      AMIP6: Atmospherical Model Intercomparison Project Phase 6
+      PDEs: Partial Differential Equations
+      RHS: Right Hand Side
+      TLDR: Too Long Did Not Read
+      SSP: Shared Socioeconomic Pathways
+      CDS: Climate Data Store
+      ARIMA: Autoregressive Integrated Moving Average
+      EO: Earth Observation
+      EVT: Extreme Value Theory
+      GEVD: Generalized Extreme Value Distribution
+      EVD: Extreme Value Distribution
+      GPD: Generalized Pareto Distribution
+      GP: Gaussian Process
+      PPL: Probabilistic Programming Language
+      MLE: Maximum Likelihood Expectation
+      MAP: Maximum A Posteriori
+      MCMC: Markov Chain Monte Carlo
+      HMC: Hamiltonian Monte Carlo
+      STS: Structured Time Series
+      TS: Time Series
+      DLM: Dynamical Linear Model
+      BDLM: Bayesian Dynamical Linear Model
+      SSM: State Space Model
+      DA: Data Assimilation
+      IID: Independently, Identically Distributed
+      SOTA: State of the Art
+      CRS: Coordinate Reference System
+      ODE: Ordinary Differential Equation
+      EnsKF: Ensemble Kalman Filter
+      EKF: Extended Kalman Filter
+      UKF: Unscented Kalman Filter
+      ADF: Assumed Density Filter
+      KF: Kalman Filter
+      DL: Deep Learning
+      ML: Machine Learning
+      BIC: Bayesian Information Criteria
+      AIC: Akaike information criterion
+      AI: Artificial Intelligence
+      ENSO: El Niño-Southern Oscillation
+      PDO: Pacific Decadal Oscillation
+      NAO: North Atlantic Oscillation
+site:
+  template: book-theme
+  # title:
+  # options:
+  #   logo: site_logo.png
+  nav: []
+  actions:
+    - title: Learn More
+      url: https://mystmd.org/guide
+  domains: []
