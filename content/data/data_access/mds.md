@@ -1,7 +1,7 @@
 ---
-title: ML4EO
-subject: Machine Learning for Earth Observations
-short_title: ML4EO
+title: Copernicus Marine Data Store
+subject: Data Access for ML4EO
+short_title: Marine Data Store
 authors:
   - name: J. Emmanuel Johnson
     affiliations:
@@ -11,7 +11,5 @@ authors:
     orcid: 0000-0002-6739-0053
     email: juanjohn@ucm.es
 license: CC-BY-4.0
-keywords: simulations
+keywords: notation
 ---
-
-**Machine Learning for Earth Observations** (ML4EO)

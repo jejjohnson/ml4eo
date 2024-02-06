@@ -4,10 +4,24 @@ chapters:
   - title: Introduction
     sections:
       - file: content/motivation.md
+      - file: content/toc.md
   - title: Data
     sections:
       - file: content/data/data_index.md
-      - file: content/data/observations.md
-      - file: content/data/simulations.md
-      - file: content/data/reanalysis.md
-  
+      - title: Data Types
+        sections:
+          - file: content/data/data_types/observations.md
+          - file: content/data/data_types/simulations.md
+          - file: content/data/data_types/reanalysis.md
+      - title: Data Access
+        sections:
+          - file: content/data/data_access/gee
+          - file: content/data/data_access/cds
+          - file: content/data/data_access/mds
+          - file: content/data/data_access/earthaccess
+          - file: content/data/data_access/aemet
+      # - title: Data Readiness
+  - title: Abstractions
+    sections:
+      - file: content/abstractions/abstractions_index.md
+      - file: content/abstractions/notation.md

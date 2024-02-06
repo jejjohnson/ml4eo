@@ -51,6 +51,8 @@ project:
       ENSO: El Niño-Southern Oscillation
       PDO: Pacific Decadal Oscillation
       NAO: North Atlantic Oscillation
+      ML4EO: Machine Learning for Earth Observations
+      PQM: Probabilistic Graphical Model
 site:
   template: book-theme
   # title:
