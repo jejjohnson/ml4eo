@@ -30,3 +30,6 @@ chapters:
           - file: content/abstractions/learning_vs_estimation/learning_vs_estimation
           - file: content/abstractions/learning_vs_estimation/lve_density_estimation
           - file: content/abstractions/learning_vs_estimation/lve_predictions
+  - title: Appendix
+    sections:
+      - file: content/appendix/igeo_projects.md
