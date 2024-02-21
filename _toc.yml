@@ -32,4 +32,9 @@ chapters:
           - file: content/abstractions/learning_vs_estimation/lve_predictions
   - title: Appendix
     sections:
-      - file: content/appendix/igeo_projects.md
+      - file: content/appendix/igeo/ai4varparam.md
+      - file: content/appendix/igeo/ai4storylines.md
+      - title: Software
+        sections:
+          - file: content/appendix/resources/xarray_stack
+      

@@ -1,7 +1,7 @@
 ---
 title: Data-Driven Regional Parameterizations
 subject: Available Datasets in Geosciences
-short_title: Regional Parameterizations
+short_title: Parameterizations
 authors:
   - name: J. Emmanuel Johnson
     affiliations:
