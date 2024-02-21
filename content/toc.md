@@ -58,6 +58,7 @@ keywords: notation
 ***
 ### **Abstractions**
 
+- Geoscience Objectives - Estimation, Learning
 - Geoscience Tasks - Interpolation, Extrapolation, Variable Transformation
 	- Extrapolation - Data Drift, Distribution Shift, Bad Generalization
 	- Interpolation - Missingness

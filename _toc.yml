@@ -24,4 +24,9 @@ chapters:
   - title: Abstractions
     sections:
       - file: content/abstractions/abstractions_index.md
-      - file: content/abstractions/notation.md
+      - file: content/abstractions/notation
+      - title: Learning vs Estimation
+        sections:
+          - file: content/abstractions/learning_vs_estimation/learning_vs_estimation
+          - file: content/abstractions/learning_vs_estimation/lve_density_estimation
+          - file: content/abstractions/learning_vs_estimation/lve_predictions

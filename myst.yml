@@ -53,6 +53,7 @@ project:
       NAO: North Atlantic Oscillation
       ML4EO: Machine Learning for Earth Observations
       PQM: Probabilistic Graphical Model
+      QoI: Quantity of Interest
 site:
   template: book-theme
   # title:
