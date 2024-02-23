@@ -163,6 +163,7 @@ p(\boldsymbol{\theta})
 \end{aligned}
 $$
 
+
 **Bayesian Regression Model**.
 Our first choice is to use a simple Bayesian regression model. 
 For more information, see the [prediction tutorial](../../abstractions/learning_vs_estimation/lve_predictions.md).
@@ -177,3 +178,227 @@ The last choice is a non-parametric method.
 It assumes an underlying function and then conditions on all of the observations.
 This method has good predictive uncertainty with well calibrated confidence intervals.
 These methods are typically more challenging to apply at scale but they work exceptionally well with small data sources.
+
+
+***
+#### Global Latent Variable Model
+
+**Joint Distribution**
+$$
+p(u,x,\theta) = p(u|x,\theta)p(\theta) = p(\theta)\prod_{m=1}^M p(u_m|x_m,\theta)
+$$
+
+
+
+**Probabilistic Model**
+
+$$
+\begin{aligned}
+\text{Data Likelihood}: && &&
+u_{m} &\sim p(u|\mathbf{x},\boldsymbol{\theta}) \\
+\text{Prior}: && &&
+\boldsymbol{\theta} &\sim p(\boldsymbol{\theta})
+\end{aligned}
+$$
+
+
+**Model**
+
+$$
+\begin{aligned}
+u_{m} = \boldsymbol{f}(\mathbf{x}_m,\boldsymbol{\theta}) + \varepsilon_m, && &&
+\varepsilon_m\sim\mathcal{N}(0,\sigma^2_)
+\end{aligned}
+$$
+
+**Operators**
+
+$$
+\begin{aligned}
+\text{Function}: && &&
+\boldsymbol{f}&:\mathbb{R}^{D_x} \rightarrow \mathbb{R} \\
+\text{Gradient}: && &&
+\partial_x\boldsymbol{f}&:\mathbb{R}^{D_x} \rightarrow \mathbb{R}^{D_x}
+\end{aligned}
+$$
+
+
+
+***
+#### Local Latent Variable Model
+
+In this case, we do not do any pooling.
+
+**Joint Distribution**
+$$
+p(u,x,z,\theta) = p(u|z)p(z|\theta)p(\theta) = 
+\prod_{m=1}^M \prod_{n=1}^{N_s} 
+p(u_{mn}|\mathbf{z}_{mn})p(\mathbf{z}_{mn}|\mathbf{x}_n,\theta_n)p(\theta_n)
+$$
+
+
+**Probabilistic Model**
+
+$$
+\begin{aligned}
+\text{Data Likelihood}: && &&
+u_{mn} &\sim p(u_n|z_n) \\
+\text{Process Likelihood}: && &&
+z_{n} &\sim p(z|\mathbf{x}_m,\boldsymbol{\theta}) \\
+\text{Prior}: && &&
+\boldsymbol{\theta} &\sim p(\boldsymbol{\theta})
+\end{aligned}
+$$
+
+**Model**
+
+$$
+\begin{aligned}
+u_{mn} &= z_{mn} + \varepsilon_m, && &&
+\varepsilon_m\sim\mathcal{N}(0,\sigma^2_u) \\
+z_{n} &= \boldsymbol{f}(\mathbf{x}_m,\boldsymbol{\theta}_n) + \varepsilon_n, && &&
+\varepsilon_n\sim\mathcal{N}(0,\sigma^2_z) \\
+\end{aligned}
+$$
+
+**Operators**
+
+$$
+\begin{aligned}
+\text{Function}: && &&
+\boldsymbol{f}&:\mathbb{R}^{D_x} \rightarrow \mathbb{R} \\
+\text{Gradient}: && &&
+\partial_x\boldsymbol{f}&:\mathbb{R}^{D_x} \rightarrow \mathbb{R}^{D_x}
+\end{aligned}
+$$
+
+
+
+
+***
+**Hierarchical Latent Variable Model**
+
+In this case, we do partial pooling.
+
+**Joint Distribution**
+$$
+p(u,x,z,\theta) = p(u|z)p(z|\theta)p(\theta) = 
+p(\theta)\prod_{m=1}^M \prod_{n=1}^{N_s} 
+p(u_{mn}|\mathbf{z}_{mn})p(\mathbf{z}_{mn}|\mathbf{x}_n,\theta)
+$$
+
+
+**Probabilistic Model**
+
+$$
+\begin{aligned}
+u_{mn} &\sim p(u_{mn}|z_n, x_m)\\
+z_{n} &\sim p(u_{mn}|z_n)\\
+\end{aligned}
+$$
+
+
+**Model**
+
+$$
+\begin{aligned}
+u_{mn} &= z_{mn} + \varepsilon_m, && &&
+\varepsilon_m\sim\mathcal{N}(0,\sigma^2_u) \\
+z_{mn} &= \boldsymbol{f}(\mathbf{x}_n,\boldsymbol{\theta}) + \varepsilon_m, && &&
+\varepsilon_m\sim\mathcal{N}(0,\sigma^2_z) \\
+\end{aligned}
+$$
+
+**Operators**
+
+$$
+\begin{aligned}
+\text{Function}: && &&
+\boldsymbol{f}&:\mathbb{R}^{D_x} \rightarrow \mathbb{R} \\
+\text{Gradient}: && &&
+\partial_x\boldsymbol{f}&:\mathbb{R}^{D_x} \rightarrow \mathbb{R}^{D_x}
+\end{aligned}
+$$
+
+
+
+
+
+#### PseudoCode - **From Scratch**
+
+
+```python
+# get inputs
+x: Array["M D"] = ...
+s: Array["N"] = ...
+u: Array["N"] = ...
+
+# get dimensions
+num_models, num_dims = x.shape
+num_spatial_points = s.shape
+
+# scratch
+sigma_z: Array["N"] = sample("noise_z", dist, num_samples=N)
+weight_z: Array["N D"] = sample("weight", dist, num_samples=N)
+bias_z: Array["N"] = sample("bias", dist, num_samples=N)
+# z = w x + b + noise
+z: Array["M N"] = einsum("ND,MD->MN", weight_z, x)
+z += b + sigma_z
+sigma_u: Array["M N"] = sample("noise_u", dist, num_samples=(M, N))
+u: Array["M N"] = sample("obs", dist.Normal(z, sigma_u), obs=u)
+```
+
+
+
+#### PseudoCode - **Plate Notation**
+
+```python
+# get inputs
+x: Array["M D"] = ...
+s: Array["N"] = ...
+u: Array["M N"] = ...
+
+# create plate for spatial domain
+spatial_plate = plate(num_spatial_points)
+model_plate = plate(num_models)
+
+with spatial_plate:
+  sigma_z: Array[""] = sample("noise_z", dist)
+  weight_z: Array["D"] = sample("weight", dist)
+  bias_z: Array[""] = sample("bias", dist)
+  
+  with model_plate:
+    # z = w x + b + noise
+    z: Array[""] = einsum("D,D->", x, weight_z) + b + sigma_z
+    sigma_u: Array[""] = sample("noise_u", dist)
+    u: Array[""] = sample("obs", dist.Normal(z, sigma_u), obs=u)
+```
+
+***
+#### Gaussian Process Model
+
+
+**Joint Distribution**
+$$
+\begin{aligned}
+p(u,x,z,f,s,\theta) &= p(u|z)p(z|f,x,\theta)p(f|s,\alpha)p(\theta)p(\alpha)\\
+&= 
+p(\theta)p(\alpha)\prod_{m=1}^M \prod_{n=1}^{N_s} 
+p(u_{mn}|\mathbf{z}_{n})p(\mathbf{z}_{n}|\mathbf{x}_m, \boldsymbol{f}_n, \boldsymbol{\theta})
+p(\boldsymbol{f}_n|\mathbf{s}_n,\boldsymbol{\alpha})
+\end{aligned}
+$$
+
+
+**Probabilistic Model**
+
+$$
+\begin{aligned}
+\text{Data Likelihood}: && &&
+u_{mn} &\sim p(u_n|z_nm,) \\
+\text{Process Likelihood}: && &&
+z_{n} &\sim p(z|\mathbf{x}_m,\boldsymbol{\theta}) \\
+\text{Prior}: && &&
+\boldsymbol{\theta} &\sim p(\boldsymbol{\theta})
+\end{aligned}
+$$

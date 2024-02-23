@@ -24,7 +24,11 @@ chapters:
   - title: Abstractions
     sections:
       - file: content/abstractions/abstractions_index.md
-      - file: content/abstractions/notation
+      - title: Notation
+        sections:
+          - file: content/abstractions/notation/notation_basic
+          - file: content/abstractions/notation/notation_operators
+          - file: content/abstractions/notation/notation_modeling
       - title: Learning vs Estimation
         sections:
           - file: content/abstractions/learning_vs_estimation/learning_vs_estimation
@@ -37,4 +41,7 @@ chapters:
       - title: Software
         sections:
           - file: content/appendix/resources/xarray_stack
+      - title: Miscellaneous
+        sections:
+          - file: content/appendix/misc/sa
       
