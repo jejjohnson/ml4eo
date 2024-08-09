@@ -1,12 +1,33 @@
-# See docs at: https://mystmd.org/guide/frontmatter
+# version: 1
+# site:
+#   nav: []
+#   actions:
+#     - title: Learn More
+#       url: https://mystmd.org/guide
+#   domains: []
+#   template: book-theme
+#   project:
+#   title: Machine Learning 4 Earth Observations
+#   github: https://github.com/jejjohnson/ml4eo
+#   authors: Juan Emmanuel Johnson
+#   keywords: []
+#   open_access: true
+#   license: CC-BY-4.0
+#   abbreviations:
 version: 1
+site:
+  nav: []
+  actions:
+    - title: Learn More
+      url: https://mystmd.org/guide
+  domains: []
+  template: book-theme
 project:
-  # title:
-  # description:
-  keywords: []
-  authors: []
+  title: ML4EO
   github: https://github.com/jejjohnson/ml4eo
-  # bibliography: []
+  keywords: []
+  open_access: true
+  license: CC-BY-4.0
   abbreviations:
       ERA5: ECMWF Reanalysis Version 5
       CMIP6: Coupled Model Intercomparison Project Phase 6
@@ -54,13 +75,3 @@ project:
       ML4EO: Machine Learning for Earth Observations
       PQM: Probabilistic Graphical Model
       QoI: Quantity of Interest
-site:
-  template: book-theme
-  # title:
-  # options:
-  #   logo: site_logo.png
-  nav: []
-  actions:
-    - title: Learn More
-      url: https://mystmd.org/guide
-  domains: []

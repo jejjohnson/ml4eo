@@ -24,16 +24,83 @@ chapters:
   - title: Abstractions
     sections:
       - file: content/abstractions/abstractions_index.md
+      - file: content/abstractions/mathematical_modeling.md
+      - file: content/abstractions/probabilistic_graphical_models.md
+      - file: content/abstractions/geoscience_problems.md
+      - file: content/abstractions/geoscience_tasks.md
       - title: Notation
         sections:
           - file: content/abstractions/notation/notation_basic
           - file: content/abstractions/notation/notation_operators
           - file: content/abstractions/notation/notation_modeling
-      - title: Learning vs Estimation
+  - title: Geoscience Tasks
+    sections:
+      - file: content/abstractions/learning_vs_estimation/learning_vs_estimation
+      - title: Walkthrough
+        sections: 
+          - file: content/walkthrough/learning_vs_estimation/overview
+          - file: content/walkthrough/learning_vs_estimation/lve_density_estimation
+          - file: content/walkthrough/learning_vs_estimation/lve_parameter_estimation
+          - file: content/walkthrough/learning_vs_estimation/lve_state_estimation
+          - file: content/walkthrough/learning_vs_estimation/lve_predictions
+  - title: Parameterization
+    sections:
+      - file: content/parameterizations/parameterizations_overview.md
+      - file: content/parameterizations/parameterization_whirlwind_tour
+      - file: content/parameterizations/dynamical_system.md
+      - file: content/parameterizations/anatomy_of_a_PDE.md
+      - file: content/parameterizations/ssm.md
+  - title: Estimation
+    sections:
+      - file: content/estimation/estimation_overview.md
+      - file: content/estimation/inverse_problems.md
+  - title: Inference
+    sections:
+      - file: content/inference/inference_overview_toc.md
+  - title: Applications
+    sections:
+      - file: content/applications/apps_overview.md
+      - title: Extremes
         sections:
-          - file: content/abstractions/learning_vs_estimation/learning_vs_estimation
-          - file: content/abstractions/learning_vs_estimation/lve_density_estimation
-          - file: content/abstractions/learning_vs_estimation/lve_predictions
+          - file: content/applications/extremes/extremes_overview.md
+      - title: Ocean Mapping
+        sections:
+          - file: content/applications/ocean_mapping/ocean_mapping_overview.md
+      - title: I2I
+        sections:
+          - file: content/applications/i2i/i2i_overview.md
+  - title: Numerical Analysis
+    sections:
+      - file: content/numerical_analysis/nm_overview
+  - title: Algorithms
+    sections:
+      - file: content/algorithms/enskf.md
+      - file: content/algorithms/kf.md
+  - title: TIL
+    sections:
+      - file: content/appendix/igeo/ai4varparam.md
+      - file: content/appendix/igeo/ai4storylines.md
+      - title: Convolutions
+        sections:
+          - file: content/TIL/convolutions/convolutions_images
+          - file: content/TIL/convolutions/convolutions_fft
+          - file: content/TIL/convolutions/convolutions_resampling
+          - file: content/TIL/convolutions/convolutions_missing
+      - title: Missing Data
+        sections:
+          - file: content/TIL/missing/missing_types
+          - file: content/TIL/missing/masks_likelihoods
+      - title: Feature Engineering
+        sections:
+          - file: content/TIL/feature_engineering/geo_ops_overview
+          - file: content/TIL/feature_engineering/anomalies
+          - file: content/TIL/feature_engineering/climatology
+          - file: content/TIL/feature_engineering/detrend
+          - file: content/TIL/feature_engineering/filtering
+          - file: content/TIL/feature_engineering/spatial_mean
+      - title: ML Pipelines
+        sections:
+          - file: content/TIL/pipelines/geodata_4_ml
   - title: Appendix
     sections:
       - file: content/appendix/igeo/ai4varparam.md
@@ -44,4 +111,5 @@ chapters:
       - title: Miscellaneous
         sections:
           - file: content/appendix/misc/sa
+        
       
