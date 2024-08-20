@@ -26,6 +26,16 @@ In this application, we are interested in modeling temperatures, and in particul
 #### **Datasets**.
 The first set of datasets will feature a range of different
 
+
+**Global Mean Surface Temperature Anomaly**.
+This is our first univariate time series that we will be using to explore data-driven modeling techniques.
+It is a basic dataset which captures the change in mean surface temperature over the Earths surface.
+It has already been pre-processed to remove all artifacts and 
+
+
+:::{seealso} **Equations**
+:class: dropdown
+
 $$
 \begin{aligned}
 \text{Univariate Time Series}: && &&
@@ -44,6 +54,8 @@ y_n\in\mathbb{R} \\
 \mathbf{y}_n\in\mathbb{R}^{D_y} \\
 \end{aligned}
 $$
+
+:::
 
 ***
 #### **Sub-Topics**
