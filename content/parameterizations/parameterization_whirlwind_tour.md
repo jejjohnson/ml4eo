@@ -25,11 +25,21 @@ keywords: notation
 ## **Unconditional Density Estimation**
 
 
-***
 ### **IID Data**
 
 $$
 \mathcal{D} = \{ \mathbf{y}_n\}_{n=1}^N
+$$
+
+A more convenient way to represent this is to show the stacked matrices.
+
+$$
+\begin{aligned}
+\text{Measurements}: && &&
+\mathbf{Y} &\in\mathbb{R}^{N\times D_y} 
+&& &&
+\mathbf{y}_n \in\mathbb{R}
+\end{aligned}
 $$
 
 **Examples**:
@@ -64,8 +74,29 @@ $$
 ### **Time Series Data**
 
 $$
-\mathcal{D} = \{ t_n, \mathbf{y}_n\}_{n=1}^N
+\begin{aligned}
+\mathcal{D} &= \left\{ t_n, \mathbf{y}_n \right\}_{n=1}^{N_T},
+&& &&
+\mathbf{y}_n \in\mathbb{R}^{D_y}
+&& &&
+t_n\in\mathbb{R}^+
+\end{aligned}
 $$
+
+A more convenient way to represent this is to show the stacked matrices.
+
+$$
+\begin{aligned}
+\text{Measurements}: && &&
+\mathbf{Y} &\in\mathbb{R}^{N_T\times D_y} 
+&& &&
+\mathbf{y}_n \in\mathbb{R}\\
+\text{Time Stamps}: && &&
+\mathbf{t} &\in\mathbb{R}^{N_T} && &&
+t_n \in\mathbb{R}^+
+\end{aligned}
+$$
+
 
 #### **Temporally Conditioned Model**
 
@@ -95,6 +126,20 @@ $$
 \mathcal{D} = \{\mathbf{s}_m,\mathbf{y}_m\}_{m=1}^{N_\Omega}
 $$
 
+A more convenient way to represent this is to show the stacked matrices.
+
+$$
+\begin{aligned}
+\text{Measurements}: && &&
+\mathbf{Y} &\in\mathbb{R}^{N_\Omega\times D_y} 
+&& &&
+\mathbf{y}_n \in\mathbb{R}^{D_y}\\
+\text{Spatial Coordinates}: && &&
+\mathbf{S} &\in\mathbb{R}^{N_\Omega\times D_s} && &&
+\mathbf{s}_n \in\mathbb{R}^{D_s}
+\end{aligned}
+$$
+
 #### **Spatially Conditioned Model**
 
 
@@ -109,6 +154,23 @@ $$
 
 $$
 \mathcal{D} = \{t_n, \mathbf{s}_m,\mathbf{y}_{nm}\}_{n=1,m=1}^{N_T,N_\Omega}
+$$
+
+A more convenient way to represent this is to show the stacked matrices.
+
+$$
+\begin{aligned}
+\text{Measurements}: && &&
+\mathbf{Y} &\in\mathbb{R}^{N_T\times D_y} 
+&& &&
+\mathbf{y}_n \in\mathbb{R}\\
+\text{Time Stamps}: && &&
+\mathbf{t} &\in\mathbb{R}^{N_T} && &&
+t_n \in\mathbb{R}^+ \\
+\text{Spatial Coordinates}: && &&
+\mathbf{S} &\in\mathbb{R}^{N_\Omega\times D_s} && &&
+\mathbf{s}_n \in\mathbb{R}^{D_s}
+\end{aligned}
 $$
 
 #### **Spatiotemporal Conditioned Model**
@@ -145,6 +207,20 @@ $$
 \mathcal{D} = \{ \mathbf{x}_n,\mathbf{y}_n\}_{n=1}^N
 $$
 
+A more convenient way to represent this is to show the stacked matrices.
+
+$$
+\begin{aligned}
+\text{Measurements}: && &&
+\mathbf{Y} &\in\mathbb{R}^{N_T\times D_y} 
+&& &&
+\mathbf{y}_n \in\mathbb{R}^{D_y}\\
+\text{Covariates}: && &&
+\mathbf{X} &\in\mathbb{R}^{N_T \times D_x} && &&
+\mathbf{x}_n \in\mathbb{R}^{D_x}
+\end{aligned}
+$$
+
 
 #### **Non-Pooled Model**
 
@@ -169,8 +245,25 @@ $$
 \mathcal{D} = \{ t_n, \mathbf{x}_n, \mathbf{y}_n\}_{n=1}^N
 $$
 
-#### **Temporally Conditioned Model**
+A more convenient way to represent this is to show the stacked matrices.
 
+$$
+\begin{aligned}
+\text{Measurements}: && &&
+\mathbf{Y} &\in\mathbb{R}^{N_T\times D_y} 
+&& &&
+\mathbf{y}_n \in\mathbb{R}^{D_y}\\
+\text{Covariates}: && &&
+\mathbf{X} &\in\mathbb{R}^{N_T \times D_x} && &&
+\mathbf{x}_n \in\mathbb{R}^{D_x} \\
+\text{Time Stamps}: && &&
+\mathbf{t} &\in\mathbb{R}^{N_T} && &&
+t_n \in\mathbb{R}^+
+\end{aligned}
+$$
+
+
+#### **Temporally Conditioned Model**
 
 $$
 p(\mathbf{Y},\mathbf{t},\mathbf{X},\mathbf{Z},\boldsymbol{\theta}) = 
@@ -197,6 +290,24 @@ $$
 \mathcal{D} = \{\mathbf{s}_n,\mathbf{x}_n,\mathbf{y}_n\}_{n=1}^N
 $$
 
+A more convenient way to represent this is to show the stacked matrices.
+
+$$
+\begin{aligned}
+\text{Measurements}: && &&
+\mathbf{Y} &\in\mathbb{R}^{N_\Omega\times D_y} 
+&& &&
+\mathbf{y}_n \in\mathbb{R}^{D_y}\\
+\text{Covariates}: && &&
+\mathbf{X} &\in\mathbb{R}^{N_\Omega \times D_x} && &&
+\mathbf{x}_n \in\mathbb{R}^{D_x} \\
+\text{Spatial Coordinates}: && &&
+\mathbf{S} &\in\mathbb{R}^{N_\Omega\times D_s} && &&
+\mathbf{s}_n \in\mathbb{R}^{D_s}
+\end{aligned}
+$$
+
+
 #### **Spatially Conditioned Model**
 
 
@@ -218,6 +329,27 @@ $$
 N = N_TN_\Omega
 \end{aligned}
 $$
+
+A more convenient way to represent this is to show the stacked matrices.
+
+$$
+\begin{aligned}
+\text{Measurements}: && &&
+\mathbf{Y} &\in\mathbb{R}^{N_T\times N_\Omega \times D_y} 
+&& &&
+\mathbf{y}_n \in\mathbb{R}^{D_y}\\
+\text{Covariates}: && &&
+\mathbf{X} &\in\mathbb{R}^{N_\Omega \times D_x} && &&
+\mathbf{x}_n \in\mathbb{R}^{D_x} \\
+\text{Time Stamps}: && &&
+\mathbf{t} &\in\mathbb{R}^{N_T} && &&
+t_n \in\mathbb{R}^+ \\
+\text{Spatial Coordinates}: && &&
+\mathbf{S} &\in\mathbb{R}^{N_\Omega\times D_s} && &&
+\mathbf{s}_n \in\mathbb{R}^{D_s}
+\end{aligned}
+$$
+
 
 #### **Spatiotemporal Conditioned Model**
 

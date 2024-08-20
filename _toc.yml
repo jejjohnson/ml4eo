@@ -63,12 +63,15 @@ chapters:
       - title: Extremes
         sections:
           - file: content/applications/extremes/extremes_overview.md
+          - file: content/applications/extremes/extremes_blog_schedule
       - title: Ocean Mapping
         sections:
           - file: content/applications/ocean_mapping/ocean_mapping_overview.md
+          - file: content/applications/ocean_mapping/ocean_mapping_blog_schedule
       - title: I2I
         sections:
           - file: content/applications/i2i/i2i_overview.md
+          - file: content/applications/i2i/i2i_blog_schedule.md
   - title: Numerical Analysis
     sections:
       - file: content/numerical_analysis/nm_overview
@@ -103,8 +106,21 @@ chapters:
           - file: content/TIL/pipelines/geodata_4_ml
   - title: Appendix
     sections:
+      - file: content/appendix/appendix_toc
       - file: content/appendix/igeo/ai4varparam.md
       - file: content/appendix/igeo/ai4storylines.md
+      - title: Differentiation
+        sections:
+          - file: content/appendix/differentiation/differentiation_overview
+      - title: Integration
+        sections:
+          - file: content/appendix/integration/integration_overview
+      - title: Function Approximation
+        sections:
+          - file: content/appendix/function_approx/function_approx_overview
+      - title: Numerical Linear Algebra
+        sections:
+          - file: content/appendix/numerical_linear_algebra/nla_overview
       - title: Software
         sections:
           - file: content/appendix/resources/xarray_stack

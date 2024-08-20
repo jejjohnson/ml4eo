@@ -18,8 +18,97 @@ keywords: notation
 
 ## Application Track
 
-### Overview
+### **Extreme Values Modeling**
 
+#### **Introduction**
+
+In this section, we will look at **why** this is such an important topic for the community.
+
+#### **Anomalous Values**
+
+In this section, we will explore the canonical dataset of *Global Mean Surface Temperature Anomaly*.
+We will take inspiration from the [ClimateDataStore](https://climate.copernicus.eu/climate-indicators/temperature) and the [NOAA-NCEI](https://www.ncei.noaa.gov/access/monitoring/global-temperature-anomalies/mean) institutions which have graphs and host the source datasets.
+
+#### **Mean Values**
+
+In this section, we will take a step back and look at some local datasets for Spain.
+We will start with a single weather station and go through the exact same setup as the previous section for anomalous values.
+Then, we will increase the difficulty by taking into account multiple weather stations.
+
+#### **Extreme Values**
+
+In this section, we will look at the daily max values.
+Now, we will do the exact same process for modeling but taking into account the extreme values.
+
+
+---
+### **Sea Surface Mapping**
+
+#### **Introduction**
+
+* The Big Why
+
+#### **Unstructured Observations to Structured Observations**
+
+In this first section, we will tackle unstructured observations.
+We will do this through a deep dive into *function approximations* and demonstrate how these can be used to create structured observations.
+We will do simple discretization procedures like histogram or nearest neighbours.
+Then we will look at more advanced methods like non-parametric interpolation.
+* Discretization
+* Non-Parametric Interpolation
+
+
+#### **Learning to Predict**
+
+In this next section, we will investigate how we can
+Finally, we will introduce parametric interpolation which is where we learn operators from the observations themselves.
+* Problem Formulation & Experimental Setup - OSE
+* Parametric Interpolation
+* Parametric Forecasting
+
+#### **Observations to Reanalysis**
+
+* Differentiable Physics Models
+* Representation Learning
+
+#### **Learning to Assimilate**
+
+* Problem Formulation + Experimental Setup
+* Equilibrium Models
+
+#### **Learning to Predict**
+* Representation Learning
+* Parametric Forecasting
+
+---
+### **Instrument-2-Instrument**
+
+#### **Introduction**
+
+#### **Satellite Datasets**
+
+- Different Satellites
+- Data Downloader Pipelines
+
+#### **GeoProcessing Pipelines**
+
+- Geostationary Satellites
+- Polar Orbiting Satellites - SWATH
+- Polar Orbiting Satellites - AlongTrack
+
+#### **GeoData 4 ML**
+
+- Reprojections
+
+#### **Representation Learning**
+
+- Parameterization
+- Foundation Model
+- Transfer Learning
+
+#### **Operator Learning**
+
+- Neural Operators
 
 ***
 **Extreme Values Modeling**
